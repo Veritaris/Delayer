@@ -4,7 +4,7 @@ author: Veritaris
 load: STARTUP
 authors: [Veritaris]
 website: https://dreamfinity.org
-version: 1.0
+version: 1.1
 commands:
   delay:
     aliases: [delay]

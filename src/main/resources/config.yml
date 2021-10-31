@@ -1,7 +1,5 @@
-#Mysql connection data
-Mysql:
-  host:
-  port:
-  name:
-  user:
-  password:
+# Redis connection params
+Redis:
+  host: localhost
+  port: 6379
+  password: 5vK?-LbY_ChFIXSEp7xPNOgM,uTHl1qt

@@ -23,7 +23,7 @@ apply plugin: "java"
 
 
 group 'me.veritaris.delayer'
-version '1.0.1'
+version '1.1.0'
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
@@ -43,24 +43,20 @@ repositories {
     maven {
         url 'https://cloudrep.veritaris.me/repos'
     }
+    mavenCentral()
 }
 
 dependencies {
-//    compile 'com.fasterxml.jackson.core:jackson-core:2.9.8'
-//    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
-//    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
-    compile 'org.dreamfinity:bukkit:1.7.10-R0.1:dev'
     compile 'org.dreamfinity:craftbukkit:1.7.10-R0.1:dev'
-//    compile 'org.dreamfinity:vault:1.7:dev'
-//    implementation 'com.google.code.gson:gson:2.8.6'
+    compile 'redis.clients:jedis:3.7.0'
+    compile 'com.google.code.gson:gson:2.8.8'
 }
 
-//jar {
-//    manifest {
-//        attributes 'FMLCorePlugin': 'org.dreamfinity.reinvention.hooks.HookLoader'
-//        attributes 'FMLCorePluginContainsFMLMod': 'true'
-//    }
-//}
+jar {
+    manifest {
+
+    }
+}
 
 processResources {
     inputs.property "version", project.version

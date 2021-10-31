@@ -1,5 +1,6 @@
 package me.veritaris.delayer;
 
+import me.veritaris.delayer.BukkitLogger.Color;
 import me.veritaris.delayer.Commands.Help;
 import me.veritaris.delayer.Commands.List;
 import me.veritaris.delayer.Commands.Remove;
@@ -8,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class CommandHandler implements CommandExecutor {
@@ -48,11 +50,12 @@ public class CommandHandler implements CommandExecutor {
             default:
                 switch (args[0]) {
                     case "set":
-                        logger.info("Setting command");
                         Set.use(commandSender, args);
                         break;
                     default:
-//                        TODO show help
+                        if (commandSender != null) {
+                            commandSender.sendMessage(Color.YELLOW_BRIGHT + "Unknown command '" + Arrays.toString(args) + "'");
+                        }
                         break;
                 }
                 break;

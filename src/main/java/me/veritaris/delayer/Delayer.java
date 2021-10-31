@@ -1,11 +1,13 @@
 package me.veritaris.delayer;
 
+import me.veritaris.delayer.BukkitLogger.Color;
 import me.veritaris.delayer.Events.PlayerJoin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.logging.Logger;
+
 
 public final class Delayer extends JavaPlugin {
     public static Logger logger;
@@ -19,7 +21,7 @@ public final class Delayer extends JavaPlugin {
     @Override
     public void onEnable() {
         logger = getLogger();
-        logger.info("Enabling plugin");
+        logger.info(Color.GREEN_BRIGHT + "Enabling plugin" + Color.RESET);
 
         Delayer.instance = this;
 
@@ -40,7 +42,7 @@ public final class Delayer extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        logger.info("Disabling plugin");
+        logger.info(Color.YELLOW_BRIGHT + "Disabling plugin" + Color.RESET);
     }
 
     public static HashMap<String, String> getCommandsQueue() {
