@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name 'Curseforge Maven'
+            url 'https://minecraft.curseforge.com/api/maven/'
+        }
+        maven {
+            url 'https://cloudrep.veritaris.me/repos'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge'
+apply plugin: "java"
+
+
+group 'me.veritaris.delayer'
+version '1.0.1'
+
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "idea"
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+runClient {
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
+}
+
+repositories {
+    maven {
+        url 'https://cloudrep.veritaris.me/repos'
+    }
+}
+
+dependencies {
+//    compile 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+//    compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
+//    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    compile 'org.dreamfinity:bukkit:1.7.10-R0.1:dev'
+    compile 'org.dreamfinity:craftbukkit:1.7.10-R0.1:dev'
+//    compile 'org.dreamfinity:vault:1.7:dev'
+//    implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+//jar {
+//    manifest {
+//        attributes 'FMLCorePlugin': 'org.dreamfinity.reinvention.hooks.HookLoader'
+//        attributes 'FMLCorePluginContainsFMLMod': 'true'
+//    }
+//}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include "mcmod.info"
+        expand "version": project.version, "mcversion": project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "mcmod.info"
+    }
+}

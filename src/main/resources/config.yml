@@ -1,0 +1,7 @@
+#Mysql connection data
+Mysql:
+  host:
+  port:
+  name:
+  user:
+  password:
