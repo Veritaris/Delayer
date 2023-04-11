@@ -4,7 +4,7 @@ author: Veritaris
 load: STARTUP
 authors: [Veritaris]
 website: https://dreamfinity.org
-version: 1.1
+version: 1.2.2
 commands:
   delay:
     aliases: [delay]
@@ -16,6 +16,7 @@ permissions:
       delay.set: true
       delay.remove: true
       delay.list: true
+      delay.help: true
   delay.set:
     description: Возможность установить команду для игрока
     default: false
@@ -23,5 +24,8 @@ permissions:
     description: Возможность удалять назначенную команду
     default: false
   delay.list:
-    description: Возможность просматривать назначанные игрокам команды
+    description: Возможность просматривать назначенные игрокам команды
     default: false
+  delay.help:
+    description: Возможность просматривать помощь по плагину
+    default: true

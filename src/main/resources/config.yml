@@ -1,5 +1,9 @@
-# Redis connection params
-Redis:
+# storage configuration
+Storage:
+#  storage type. Available types are: inmemory, redis, sqlite, mysql, postgresql
+  type: redis
+  tableName: delayer
   host: localhost
   port: 6379
+  user: user
   password: password
