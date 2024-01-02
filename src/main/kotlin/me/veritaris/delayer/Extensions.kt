@@ -14,11 +14,11 @@ fun String.colorLogWrapped(color: Color): String {
     return "${color}$this${color}"
 }
 
-fun String.colored(color: Color, colorFinish: Color = Color.RED): String {
+fun String.colored(color: Color, colorFinish: Color = Color.WHITE): String {
     return "${color}$this${colorFinish}"
 }
 
-fun String.coloredLog(color: Color, colorFinish: Color = Color.RED): String {
+fun String.coloredLog(color: Color, colorFinish: Color = Color.WHITE): String {
     return "${color}$this${colorFinish}"
 }
 
