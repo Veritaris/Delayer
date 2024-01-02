@@ -1,7 +1,7 @@
 package me.veritaris.delayer
 
-import me.veritaris.delayer.BukkitLogger.Color.*
-import me.veritaris.delayer.Events.PlayerJoin
+import me.veritaris.delayer.bukkitLogger.Color.*
+import me.veritaris.delayer.events.PlayerJoin
 import me.veritaris.delayer.storage.*
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
@@ -14,13 +14,12 @@ import java.util.logging.Logger
 
 class Delayer : JavaPlugin() {
     override fun onEnable() {
-        Companion.logger = logger
-        Companion.logger!!.info("Enabling plugin".coloredLog(GREEN_BRIGHT))
+        logger.info("Enabling plugin".coloredLog(GREEN_BRIGHT))
         setupConfigs()
         instance = this
         queueStorage = getQueueStorage()
-        logger.info("Initialised queue storage with type ${if (queueStorage!!.type == StorageType.INMEMORY) "${RED_BRIGHT}in-memory" else "${GREEN_BRIGHT}${queueStorage!!.type}(persistent)"}${RESET}")
-        if (queueStorage!!.type == StorageType.INMEMORY) {
+        logger.info("Initialised queue storage with type ${if (queueStorage.type == StorageType.INMEMORY) "${RED_BRIGHT}in-memory" else "${GREEN_BRIGHT}${queueStorage.type}(persistent)"}${RESET}")
+        if (queueStorage.type == StorageType.INMEMORY) {
             logger.warning("In-memory storage is used! Queues commands will be lost after server restart".coloredLog(YELLOW_BRIGHT))
         }
 
@@ -105,17 +104,13 @@ class Delayer : JavaPlugin() {
     }
 
     override fun onDisable() {
-        Companion.logger!!.info("Disabling plugin".coloredLog(YELLOW_BRIGHT))
+        logger.info("Disabling plugin".coloredLog(YELLOW_BRIGHT))
     }
 
     companion object {
-        @JvmField
-        var logger: Logger? = null
-
-        @JvmStatic
-        var instance: Delayer? = null
-            private set
-        var queueStorage: QueueStorage? = null
+        lateinit var logger: Logger
+        lateinit var instance: Delayer
+        lateinit var queueStorage: QueueStorage
     }
 }
 

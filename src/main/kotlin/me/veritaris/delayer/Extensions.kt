@@ -1,6 +1,6 @@
 package me.veritaris.delayer
 
-import me.veritaris.delayer.BukkitLogger.Color
+import me.veritaris.delayer.bukkitLogger.Color
 
 fun <T> Array<T>.second(): T {
     return this[1]

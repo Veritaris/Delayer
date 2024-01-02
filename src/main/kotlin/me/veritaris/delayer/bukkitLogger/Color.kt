@@ -1,4 +1,4 @@
-package me.veritaris.delayer.BukkitLogger
+package me.veritaris.delayer.bukkitLogger
 
 @Suppress("unused")
 enum class Color( // WHITE

@@ -4,7 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
 class FileBasedQueueStorage(
-    val path: String,
+    private val path: String,
     override val type: StorageType = StorageType.FILEBASED
 ) : QueueStorage {
 
@@ -23,16 +23,14 @@ class FileBasedQueueStorage(
     }
 
     override fun purgeDelayedCommands(): Boolean {
-        return this.innerStorage.purgeDelayedCommands().let {
+        return this.innerStorage.purgeDelayedCommands().also {
             writeCommandsToFile()
-            it
         }
     }
 
     override fun setDelayedCommand(command: DelayedCommand): Boolean {
-        return this.innerStorage.setDelayedCommand(command).let {
+        return this.innerStorage.setDelayedCommand(command).also {
             writeCommandsToFile()
-            it
         }
     }
 
@@ -41,9 +39,8 @@ class FileBasedQueueStorage(
     }
 
     override fun removeDelayedCommandForPlayer(playerName: String): Boolean {
-        return this.innerStorage.removeDelayedCommandForPlayer(playerName).let {
+        return this.innerStorage.removeDelayedCommandForPlayer(playerName).also {
             writeCommandsToFile()
-            it
         }
     }
 

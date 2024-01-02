@@ -1,9 +1,9 @@
 package me.veritaris.delayer
 
-import me.veritaris.delayer.Commands.Help
-import me.veritaris.delayer.Commands.ListCommand
-import me.veritaris.delayer.Commands.Remove
-import me.veritaris.delayer.Commands.SetCommand
+import me.veritaris.delayer.commands.Help
+import me.veritaris.delayer.commands.ListCommand
+import me.veritaris.delayer.commands.Remove
+import me.veritaris.delayer.commands.SetCommand
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
