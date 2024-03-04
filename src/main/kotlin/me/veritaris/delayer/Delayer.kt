@@ -14,7 +14,8 @@ import java.util.logging.Logger
 
 class Delayer : JavaPlugin() {
     override fun onEnable() {
-        logger.info("Enabling plugin".coloredLog(GREEN_BRIGHT))
+        Companion.logger = this.logger
+        logger.info("[Delayer] Enabling plugin".coloredLog(GREEN_BRIGHT))
         setupConfigs()
         instance = this
         queueStorage = getQueueStorage()
@@ -64,6 +65,7 @@ class Delayer : JavaPlugin() {
 
         mutableListOf("1", "2")
         registerPlayerEvents()
+        logger.info("[Delayer] enabled".coloredLog(GREEN_BRIGHT))
     }
 
     private fun registerPlayerEvents() {
@@ -105,6 +107,7 @@ class Delayer : JavaPlugin() {
 
     override fun onDisable() {
         logger.info("Disabling plugin".coloredLog(YELLOW_BRIGHT))
+        logger.info("disabled".coloredLog(YELLOW_BRIGHT))
     }
 
     companion object {
